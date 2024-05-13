@@ -14,14 +14,8 @@
 <body>
     <p>Enter the id number: <input type="number" id="number" min="1" max="200"/></p>
     <p><input  class="btn btn-primary btn-primary-themed btn-md font-upper" type="button" id="addBtn" value="Submit"/></p>
-    <pre>
-        <div id="msgArea"></div>
-    </pre>
+    <pre id="msgArea"></pre>
     
-        
-    </div>
-    
-
     <!-- <script src="scripts/index.js"> -->
     <script>
         let btn = document.getElementById("addBtn");
@@ -46,12 +40,14 @@
                         return response.json();
                     }
                 })
-                .then(info => {
-                    console.log(info);
-                    let msg = JSON.stringify(info);
-                   
+                .then(data => {
+
+                    document.getElementById("msgArea").textContent = JSON.stringify(data,undefined,2);
+
+                    /*console.log(info);
+                    let msg = JSON.stringify(data, undefined, 2);
                     console.log(msg);
-                    document.getElementById("msgArea").innerHTML = msg;
+                    document.getElementById("msgArea").innerHTML = msg;*/
                 });
         }
         
